@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+
 public class Worker {
 
     private String name;
-    private WorkerLevel leve;
+    private WorkerLevel level;
     private Double baseSalary;
 
     private Department department;
@@ -17,9 +18,9 @@ public class Worker {
 
     }
 
-    public Worker(String name, WorkerLevel leve, Double baseSalary, Department department) {
+    public Worker(String name, WorkerLevel level, Double baseSalary, Department department) {
         this.name = name;
-        this.leve = leve;
+        this.level = level;
         this.baseSalary = baseSalary;
         this.department = department;
     }
@@ -32,12 +33,12 @@ public class Worker {
         this.name = name;
     }
 
-    public WorkerLevel getLeve() {
-        return leve;
+    public WorkerLevel getLevel() {
+        return level;
     }
 
-    public void setLeve(WorkerLevel leve) {
-        this.leve = leve;
+    public void setLeve(WorkerLevel level) {
+        this.level = level;
     }
 
     public Double getBaseSalary() {
@@ -74,7 +75,7 @@ public class Worker {
         for (HourContract c : contracts) {
             cal.setTime(c.getDate());
             int c_year = cal.get(Calendar.YEAR);
-            int c_month = cal.get(Calendar.MONTH);
+            int c_month = 1 + cal.get(Calendar.MONTH);
             if(year == c_year && month == c_month) {
                 sum += c.totalValue();
             }
